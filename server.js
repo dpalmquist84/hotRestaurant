@@ -69,7 +69,7 @@ app.post("/api/new", function(req, res) {
 
   console.log(newTable);
 
-  characters.push(newTable);
+  tables.push(newTable);
 
   res.json(newTable);
 });
