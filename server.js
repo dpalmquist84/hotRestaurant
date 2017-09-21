@@ -29,11 +29,25 @@ app.get("/reserve", function(req, res) {
 });
 
 
-app.get("/api/tables", function(req, res) {
+app.get("/api/:people", function(req, res) {
 
-return res.json(tables);
+    var chosen = req.params.people;
 
+  if (chosen === "table") {
+    
+    for (var i = 0; i < 4; i++) {
+        return res.json(tables[i]);
+    } 
+    }else if (chosen === "waitlist") {
+        for (var i = 5; i < tables.length; i++) {
+        return res.json(tables[i]);
+      }
+        
+    }
+    return res.json(false);
+ 
 });
+
 
 app.get("/api/waitlist", function(req, res) {
 
