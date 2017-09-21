@@ -1,3 +1,12 @@
+
+
+
+
+
+
+
+
+
 // Dependencies
 // =============================================================
 var express = require("express");
@@ -10,8 +19,21 @@ var app = express();
 var port = process.env.PORT || 3000;
 
 
-// Starts the server to begin listening
-// =============================================================
-app.listen(port, function() {
-  console.log("App listening on PORT " + port);
+var tables = [];
+
+
+
+
+// Create New Characters - takes in JSON input
+app.post("/api/new", function(req, res) {
+  var newTable = req.body;
+
+  console.log(newTable);
+
+  characters.push(newTable);
+
+  res.json(newTable);
 });
+
+
+
