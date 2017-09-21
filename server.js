@@ -29,7 +29,7 @@ app.get("/reserve", function(req, res) {
 });
 
 
-app.get("/api/:people", function(req, res) {
+app.get("/api/:people?", function(req, res) {
 
     var chosen = req.params.people;
 
@@ -48,12 +48,6 @@ app.get("/api/:people", function(req, res) {
  
 });
 
-
-app.get("/api/waitlist", function(req, res) {
-
-return res.json(waitingList);
-
-});
 
 // Starts the server to begin listening
 // =============================================================
