@@ -24,7 +24,7 @@
       <div class="col-lg-12">
 
 
-
+        <div>
         <div class="panel panel-default">
           <div class="panel-heading">
             <h3 class="panel-title"><strong>Current Reservations</strong></h3>
@@ -58,22 +58,19 @@
 
   <script type="text/javascript">
    $( document ).ready(function() {
-    $.get("/api/table", function(data) {
+    $.get("/api/new", function(data) {
         console.log(data);
-        if (data) {
-          $("#stats").show();
-          $("#name").text(data.userID);
+        // if (data) {
+        //   $("#stats").show();
+        //   $("#name").text(data.userID);
 
-        }
-        else {
-          $("#name").text("No reservations Found.");
-          $("#stats").hide();
-        }
+        // }
+        // else {
+        //   $("#name").text("No reservations Found.");
+        //   $("#stats").hide();
+        // }
       });
     });
-      var searchedCharacter = $("#character-search").val().trim();
-
-      searchedCharacter = searchedCharacter.replace(/\s+/g, "").toLowerCase();
 
 
 
