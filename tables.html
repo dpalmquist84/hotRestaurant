@@ -61,7 +61,7 @@
     $.get("/api/table", function(data) {
         console.log(data);
         for (i=0; i < data.length; i++){
-            $("#rezzie").append(data[i].userId);
+            $("#rezzie").append("<div class='well'>"+data[i].userId+"</div>");
         }
       });
     });
