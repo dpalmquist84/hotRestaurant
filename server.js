@@ -38,24 +38,31 @@ app.get("/reserve", function(req, res) {
 });
 
 
-app.get("/api/:people?", function(req, res) {
 
-    var chosen = req.params.people;
 
-  if (chosen === "table") {
-    
-    for (var i = 0; i < 4; i++) {
-        return res.json(tables[i]);
-    } 
-    }else if (chosen === "waitlist") {
-        for (var i = 5; i < tables.length; i++) {
-        return res.json(tables[i]);
-      }
-        
-    }
-    return res.json(false);
- 
-});
+app.get("/api/:people?", function (req, res) {
+  
+     var chosen = req.params.people;
+  
+     if (chosen === "table") {
+          var peopleEating = [];
+          for (var i = 0; i < 5; i++) {
+              peopleEating.push(tables[i]);
+  
+         }
+          return res.json(peopleEating);
+      } else if (chosen === "waitlist") {
+          var peopleWaiting = [];
+          for (var i = 5; i < tables.length; i++) {
+  
+             peopleWaiting.push(tables[i]);
+          }
+          return res.json(peopleWaiting);
+  
+     }
+      return res.json(false);
+  
+  });
 
 
 var tables = [];
@@ -66,12 +73,12 @@ var tables = [];
 // Create New Characters - takes in JSON input
 app.post("/api/new", function(req, res) {
   var newTable = req.body;
-
-  console.log(newTable);
+  console.log(tables);
 
   tables.push(newTable);
 
   res.json(newTable);
+
 });
 
 
