@@ -31,7 +31,7 @@
           </div>
           <div class="panel-body">
             <div class="well">
-              <h2 id="name"></h2>
+              <h2 id="rezzie"></h2>
 
 
               </div>
@@ -45,7 +45,7 @@
             </div>
             <div class="panel-body">
               <div class="well">
-                <h2 id="name"></h2>
+                <h2 id="waitbitch"></h2>
 
 
                 </div>
@@ -58,17 +58,11 @@
 
   <script type="text/javascript">
    $( document ).ready(function() {
-    $.get("/api/new", function(data) {
+    $.get("/api/table", function(data) {
         console.log(data);
-        // if (data) {
-        //   $("#stats").show();
-        //   $("#name").text(data.userID);
-
-        // }
-        // else {
-        //   $("#name").text("No reservations Found.");
-        //   $("#stats").hide();
-        // }
+        for (i=0; i < data.length; i++){
+            $("#rezzie").append(data[i].userId);
+        }
       });
     });
 

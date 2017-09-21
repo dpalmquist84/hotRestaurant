@@ -46,7 +46,7 @@ app.get("/api/:people?", function (req, res) {
   
      if (chosen === "table") {
           var peopleEating = [];
-          for (var i = 0; i < 5; i++) {
+          for (var i = 0; i < 5 && i < tables.length; i++) {
               peopleEating.push(tables[i]);
   
          }
